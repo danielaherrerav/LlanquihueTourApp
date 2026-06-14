@@ -1,0 +1,6 @@
+Ruta Gastronómica;gastronómico;45000;3
+Paseo Lacustre Llanquihue;lacustre;35000;2
+Excursión Volcán Osorno;aventura;60000;8
+Tour Cultural Frutillar;cultural;25000;4
+Ruta del Salmón;gastronómico;40000;3
+Kayak en Lago;aventura;30000;5
