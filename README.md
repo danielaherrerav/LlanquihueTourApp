@@ -9,7 +9,7 @@
 ---
 
 ## 📘 Descripción general del sistema
-Este proyecto corresponde a la Semana 4 de la asignatura Desarrollo Orientado a Objetos I. Consiste en un sistema en Java que lee datos de tours turísticos desde un archivo .txt y los almacena en un ArrayList de objetos. El sistema permite recorrer la colección completa y filtrarla según tipo, precio o el atributo elegido, aplicando estructuras dinámicas y lectura de archivos externos.
+Este proyecto corresponde a la Semana 5 de la asignatura Desarrollo Orientado a Objetos I. Consiste en un sistema en Java que lee tours desde un archivo .txt, los almacena en un ArrayList y permite al usuario buscar y filtrar por tipo, precio y nombre desde consola.
 
 ---
 
@@ -22,20 +22,22 @@ Este proyecto corresponde a la Semana 4 de la asignatura Desarrollo Orientado a 
 │   │   └── Tour.java          # Clase que representa un tour
 │   ├── 📁 data
 │   │   └── GestorDatos.java   # Lee el archivo .txt y crea los objetos
-│   └── 📁 ui
-│       └── Main.java          # Recorre y filtra la colección
+│   ├── 📁 ui
+│   │   └── Main.java          # Ejecuta el sistema con Scanner
+│   └── 📁 service
+│       └── TourService.java   # Filtra y busca tours en la colección
 └── 📁 resources
     └── tours.txt              # Archivo con los datos de los tours
 ```
 
 ### Descripción de las clases
 
-| Clase | Paquete | Descripción |
-|---|---|---|
-| `Tour` | `model` | Clase con atributos: nombre, tipo, precio y duración |
-| `GestorDatos` | `data` | Lee el archivo `.txt` línea por línea y retorna un `ArrayList<Tour>` |
-| `Main` | `ui` | Muestra todos los tours, filtra por tipo y por precio |
-
+| Clase         | Paquete   | Descripción                                                          |
+|---------------|-----------|----------------------------------------------------------------------|
+| `Tour`        | `model`   | Clase con atributos: nombre, tipo, precio y duración                 |
+| `GestorDatos` | `data`    | Lee el archivo `.txt` línea por línea y retorna un `ArrayList<Tour>` |
+| `Main`        | `ui`      | Muestra todos los tours y ejecuta el programa                        |
+| `TourService` | `service` | Filtra y busca tours en la colección                                 |
 ---
 
 ## ⚙️ Instrucciones para clonar y ejecutar el proyecto
@@ -77,7 +79,7 @@ Tour: Kayak en Lago | Tipo: aventura | Precio: $30000 | Duración: 5 hrs
 ---
 
 **Repositorio GitHub:** danielaherrerav/LlanquihueTourApp.git   
-**Fecha de entrega:** [14/06/2026]
+**Fecha de entrega:** [22/06/2026]
 
 ---
 

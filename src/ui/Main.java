@@ -2,7 +2,10 @@ package ui;
 
 import data.GestorDatos;
 import model.Tour;
+import service.TourService; // agregammos paquete service
 import java.util.ArrayList;
+import java.util.Scanner; // agregamos scanner
+
 
 public class Main {
     public static void main(String[] args) {
@@ -10,26 +13,34 @@ public class Main {
         String ruta = "resources/tours.txt";
         ArrayList<Tour> tours = GestorDatos.leerTours(ruta);
 
-        System.out.println("**** TODOS LOS TOURS ****");
-        for (Tour t : tours) {
-            System.out.println(t);
-        }
-        System.out.println("\n**** TOURS GASTRONÓMICOS ****"); // filtro tipo de tour (gastronomico)
-        for (Tour t : tours) {
-            if (t.getTipo().equals("gastronómico")){
-                System.out.println(t);
+        //agregamos scanner
+        Scanner scanner = new Scanner(System.in);
 
-            }
-        }
+        //empezamos a usar service
+        //mostrar todos
+        TourService.mostrarTodos(tours);
 
-        System.out.println("\n**** TOURS CON PRECIOS MENORES A $40.000 ****");
-        for (Tour t : tours) {
-            if (t.getPrecio() < 40000) {
-                System.out.println(t);
-            }
-        }
+        //filtrar por tipo, ya usando scanner
+        System.out.println("\nIngrese el tipo de tour que desea buscar: ");
+        String tipo = scanner.nextLine() .trim();
+        TourService.filtrarPorTipo(tours, tipo);
+
+        //filtrar por precio maximo
+        System.out.println("\nIngrese precio máximo a buscar: ");
+        int precio = scanner.nextInt();
+        TourService.filtrarPorPrecio(tours, precio);
+        scanner.nextLine();
+
+        //buscar por nombre
+        System.out.println("\nIngrese el nombre del tour que desea buscar: ");
+        String nombre = scanner.nextLine() .trim();
+        TourService.buscarPorNombre(tours, nombre);
+
+        scanner.close();
+
     }
 }
+
 
 
 
