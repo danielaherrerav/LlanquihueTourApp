@@ -57,12 +57,10 @@ git clone https://github.com/danielaherrerav/LlanquihueTourApp.git
 
 2. Abre el proyecto en **IntelliJ IDEA** (`File > Open` → selecciona la carpeta del proyecto).
 
-3. Verifica que el archivo `resources/tours.txt` esté en la raíz del proyecto.
-
-4. Ejecuta el archivo `Main.java` desde el paquete `ui`:
+3. Ejecuta el archivo `Main.java` desde el paquete `ui`:
    - Clic derecho sobre `Main.java` → **Run 'Main'**
 
-5. Ejemplo de salida esperada en consola:
+4. Ejemplo de salida esperada en consola:
 
 ```
 === RUTAS GASTRONÓMICAS ===
