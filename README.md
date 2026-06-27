@@ -9,36 +9,43 @@
 ---
 
 ## 📘 Descripción general del sistema
-Este proyecto corresponde a la Semana 5 de la asignatura Desarrollo Orientado a Objetos I. Consiste en un sistema en Java que lee tours desde un archivo .txt, los almacena en un ArrayList y permite al usuario buscar y filtrar por tipo, precio y nombre desde consola.
+Este proyecto corresponde a la **Semana 6** de la asignatura *Desarrollo Orientado a Objetos I*. Consiste en una jerarquía de clases que modela los distintos servicios turísticos de **Llanquihue Tour** aplicando **herencia simple** y **composición**.
+
+Se cuenta con una superclase `ServicioTuristico` y tres subclases: `RutaGastronomica`, `PaseoLacustre` y `ExcursionCultural`. Además, cada servicio turístico está compuesto por un objeto `Guia`, lo que representa la relación de composición entre clases.
 
 ---
 
 ## 🧱 Estructura general del proyecto
 
 ```plaintext
-📁 LlanquihueTourApp
-├── 📁 src
-│   ├── 📁 model
-│   │   └── Tour.java          # Clase que representa un tour
-│   ├── 📁 data
-│   │   └── GestorDatos.java   # Lee el archivo .txt y crea los objetos
-│   ├── 📁 ui
-│   │   └── Main.java          # Ejecuta el sistema con Scanner
-│   └── 📁 service
-│       └── TourService.java   # Filtra y busca tours en la colección
-└── 📁 resources
-    └── tours.txt              # Archivo con los datos de los tours
+📁 src
+├── 📁 model
+│   ├── Tour.java               # Clase de semanas anteriores
+│   ├── Guia.java               # Clase de composición
+│   ├── ServicioTuristico.java  # Superclase
+│   ├── RutaGastronomica.java   # Subclase
+│   ├── PaseoLacustre.java      # Subclase
+│   └── ExcursionCultural.java  # Subclase
+├── 📁 data
+│   ├── GestorDatos.java        # Lee archivo .txt (semana anterior)
+│   └── GestorServicios.java    # Crea instancias de prueba
+├── 📁 service
+│   └── TourService.java        # Filtros (semana anterior)
+└── 📁 ui
+    └── Main.java               # Ejecuta el programa
 ```
 
 ### Descripción de las clases
+### Clases nuevas de esta semana
 
-| Clase         | Paquete   | Descripción                                                          |
-|---------------|-----------|----------------------------------------------------------------------|
-| `Tour`        | `model`   | Clase con atributos: nombre, tipo, precio y duración                 |
-| `GestorDatos` | `data`    | Lee el archivo `.txt` línea por línea y retorna un `ArrayList<Tour>` |
-| `Main`        | `ui`      | Muestra todos los tours y ejecuta el programa                        |
-| `TourService` | `service` | Filtra y busca tours en la colección                                 |
----
+| Clase | Paquete | Descripción |
+|---|---|---|
+| `Guia` | `model` | Representa al guía turístico asignado a cada servicio |
+| `ServicioTuristico` | `model` | Superclase con atributos comunes a todos los servicios |
+| `RutaGastronomica` | `model` | Subclase con el atributo `numeroDeParadas` |
+| `PaseoLacustre` | `model` | Subclase con el atributo `tipoEmbarcacion` |
+| `ExcursionCultural` | `model` | Subclase con el atributo `lugarHistorico` |
+| `GestorServicios` | `data` | Crea las instancias de prueba y las muestra por consola |
 
 ## ⚙️ Instrucciones para clonar y ejecutar el proyecto
 
@@ -58,28 +65,23 @@ git clone https://github.com/danielaherrerav/LlanquihueTourApp.git
 5. Ejemplo de salida esperada en consola:
 
 ```
-=== TODOS LOS TOURS ===
-Tour: Ruta Gastronómica | Tipo: gastronómico | Precio: $45000 | Duración: 3 hrs
-Tour: Paseo Lacustre Llanquihue | Tipo: lacustre | Precio: $35000 | Duración: 2 hrs
-Tour: Excursión Volcán Osorno | Tipo: aventura | Precio: $60000 | Duración: 8 hrs
-Tour: Tour Cultural Frutillar | Tipo: cultural | Precio: $25000 | Duración: 4 hrs
-Tour: Ruta del Salmón | Tipo: gastronómico | Precio: $40000 | Duración: 3 hrs
-Tour: Kayak en Lago | Tipo: aventura | Precio: $30000 | Duración: 5 hrs
+=== RUTAS GASTRONÓMICAS ===
+Nombre: Ruta del Salmón | Duración: 3 hrs | Guía: Carlos Muñoz (Español, 5 años exp.) | Paradas: 5
+Nombre: Ruta Gastronómica Sur | Duración: 4 hrs | Guía: Ana Pérez (Inglés, 8 años exp.) | Paradas: 8
 
-=== TOURS GASTRONÓMICOS ===
-Tour: Ruta Gastronómica | Tipo: gastronómico | Precio: $45000 | Duración: 3 hrs
-Tour: Ruta del Salmón | Tipo: gastronómico | Precio: $40000 | Duración: 3 hrs
+=== PASEOS LACUSTRES ===
+Nombre: Paseo Lago Llanquihue | Duración: 2 hrs | Guía: Ana Pérez (Inglés, 8 años exp.) | Embarcación: Catamarán
+Nombre: Paseo Lago Todos Los Santos | Duración: 3 hrs | Guía: Luis Torres (Español, 3 años exp.) | Embarcación: Lancha
 
-=== TOURS CON PRECIO MENOR A $40.000 ===
-Tour: Paseo Lacustre Llanquihue | Tipo: lacustre | Precio: $35000 | Duración: 2 hrs
-Tour: Tour Cultural Frutillar | Tipo: cultural | Precio: $25000 | Duración: 4 hrs
-Tour: Kayak en Lago | Tipo: aventura | Precio: $30000 | Duración: 5 hrs
+=== EXCURSIONES CULTURALES ===
+Nombre: Tour Frutillar | Duración: 4 hrs | Guía: Carlos Muñoz (Español, 5 años exp.) | Lugar histórico: Teatro del Lago
+Nombre: Tour Puerto Varas | Duración: 5 hrs | Guía: Luis Torres (Español, 3 años exp.) | Lugar histórico: Iglesia del Sagrado Corazón
 ```
 
 ---
 
 **Repositorio GitHub:** danielaherrerav/LlanquihueTourApp.git   
-**Fecha de entrega:** [22/06/2026]
+**Fecha de entrega:** [27/06/2026]
 
 ---
 
